@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* NAVBAR CONTAINER */
+.navbar {
+    background-color: green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 35px;
+}
+
+/* LEFT NAV LINKS */
+.nav-links ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e0ffe0;
+}
+
+/* APPLY BUTTON */
+.nav-links button {
+    padding: 8px 22px;
+    border-radius: 20px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.nav-links button:hover {
+    background-color: white;
+    color: green;
+}
+
+/* RIGHT SIDE BUTTONS */
+.right-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.right-buttons button {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+/* Menu button */
+.right-buttons .menu-btn {
+    background: white;
+    color: green;
+}
+
+.right-buttons .menu-btn:hover {
+    opacity: 0.8;
+}
+
+/* Get Started button */
+.right-buttons .start-btn {
+    background: yellow;
+    color: black;
+}
+
+.right-buttons .start-btn:hover {
+    opacity: 0.85;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 850px) {
+    .nav-links ul {
+        display: none; /* hide menu for now (can add hamburger later) */
+    }
+
+    .navbar {
+        padding: 15px 20px;
+    }
+}
