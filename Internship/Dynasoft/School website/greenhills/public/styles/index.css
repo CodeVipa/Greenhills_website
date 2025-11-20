@@ -85,3 +85,10 @@
 .slide-btn.right {
     right: 10px;
 }
+.first-cards{
+    background-color: #333;
+}
+.first-cards .card-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
