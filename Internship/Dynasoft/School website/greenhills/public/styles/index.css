@@ -1,47 +1,108 @@
+.news {
+  padding: 60px 0;
+  background: #4CAF50; 
+}
+
+.news h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #fff;
+}
+
 .news-slider {
   overflow: hidden;
   width: 100%;
-  padding: 20px 0;
-  
 }
 
 .slider-track {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   width: max-content;
-  animation: slideLoop 60s linear infinite; 
+  animation: slideLoop 15s linear infinite; /* automatic sliding */
 }
 
-.news-card {
-  position: relative;
-  min-width: 300px;
-  border-radius: 12px;
+.news-item {
+  display: flex;
+  align-items: center;
+  min-width: 400px;
+  flex-shrink: 0;
+  gap: 15px;
+}
+
+.text-block {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-block p {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.news-card img {
-  width: 100%;
-  height: 180px;
+.news-item img {
+  flex: 1;
+  max-width: 160px;
+  height: 120px;
   object-fit: cover;
-  display: block;
+  border-radius: 6px;
 }
 
+.read-more {
+  padding: 4px 6px;
+  font-size: 12px;
+  width: 80px;
+  text-align: center;
+  background: #fff;
+  color: #4CAF50;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: background 0.3s, color 0.3s;
+}
 
-.card-text {
-    display:flex;
+.read-more:hover {
+  background: #e0e0e0;
+  color: #006400;
+}
+
+/* Buttons for manual sliding */
+.news-slider-wrapper {
+  position: relative;
+}
+
+.slide-btn {
   position: absolute;
-  bottom: 15px; 
-  left: 15px;
-  right: 15px;
-  color: #00a000; 
-  background: rgba(0,0,0,0.4);
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  font-size: 24px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  color: #4CAF50;
 }
 
+.slide-btn.left { left: 0; }
+.slide-btn.right { right: 0; }
 
+.slide-btn:hover { background: #fff; }
+
+/* Slide animation */
 @keyframes slideLoop {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-50%); } /* seamless looping */
 }

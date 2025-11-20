@@ -3,66 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Green Hills Academy - News & Events</title>
     <link rel="stylesheet" href="public/styles/index.css">
 </head>
 <body>
-    
 
+<section id="news" class="news">
+  <div class="container">
+    <h2>News & Events</h2>
 
-<div class="news-slider">
-  <div class="slider-track">
-  
-    <div class="news-card">
-      <h2 class="title">Green Hills Academy Hosts #InnovativeEduAfrica</h2>
-      <p class="desc">Green Hills had the privilege of hosting Innovate Edu Africa.</p>
-      <img src="public/assets/trainers.jpg">
-    </div>
+    <div class="news-slider-wrapper" style="position: relative;">
+      <!-- Left button -->
+      <button class="slide-btn left">&#10094;</button>
 
-    <div class="news-card">
-      <h2 class="title">Robotics Competition</h2>
-      <p class="desc">Students showcased amazing STEM projects.</p>
-      <img src="public/assets/image2.jpg">
-    </div>
+      <div class="news-slider">
+        <div class="slider-track">
 
-    <div class="news-card">
-      <h2 class="title">Tech Expo 2024</h2>
-      <p class="desc">Innovation and creativity at its best.</p>
-      <img src="public/assets/image3.jpg">
-    </div>
+          <div class="news-item">
+            <div class="text-block">
+              <p>Green Hills hosted #InnovativeEduAfrica Conference successfully.</p>
+              <button class="read-more">Read More &#10132;</button>
+            </div>
+            <img src="public/assets/trainers.jpg" alt="Event">
+          </div>
 
-    <div class="news-card">
-      <h2 class="title">Coding Bootcamp</h2>
-      <p class="desc">Learners gained hands-on coding skills.</p>
-      <img src="public/assets/image4.jpg">
-    </div>
+          <div class="news-item">
+            <div class="text-block">
+              <p>Robotics Competition showcased student innovation.</p>
+              <button class="read-more">Read More &#10132;</button>
+            </div>
+            <img src="public/assets/image2.jpg" alt="Event">
+          </div>
 
-   
-    <div class="news-card">
-      <h2 class="title">Green Hills Academy Hosts #InnovativeEduAfrica</h2>
-      <p class="desc">Green Hills had the privilege of hosting Innovate Edu Africa.</p>
-      <img src="public/assets/trainers.jpg">
-    </div>
+          <div class="news-item">
+            <div class="text-block">
+              <p>New science lab inaugurated at Green Hills Academy.</p>
+              <button class="read-more">Read More &#10132;</button>
+            </div>
+            <img src="public/assets/lab.jpg" alt="Event">
+          </div>
 
-    <div class="news-card">
-      <h2 class="title">Robotics Competition</h2>
-      <p class="desc">Students showcased amazing STEM projects.</p>
-      <img src="public/assets/image2.jpg">
-    </div>
+          <!-- Duplicate items for seamless looping -->
+          <div class="news-item">
+            <div class="text-block">
+              <p>Green Hills hosted #InnovativeEduAfrica Conference successfully.</p>
+              <button class="read-more">Read More &#10132;</button>
+            </div>
+            <img src="public/assets/trainers.jpg" alt="Event">
+          </div>
 
-    <div class="news-card">
-      <h2 class="title">Tech Expo 2024</h2>
-      <p class="desc">Innovation and creativity at its best.</p>
-      <img src="public/assets/image3.jpg">
-    </div>
+          <div class="news-item">
+            <div class="text-block">
+              <p>Robotics Competition showcased student innovation.</p>
+              <button class="read-more">Read More &#10132;</button>
+            </div>
+            <img src="public/assets/image2.jpg" alt="Event">
+          </div>
 
-    <div class="news-card">
-      <h2 class="title">Coding Bootcamp</h2>
-      <p class="desc">Learners gained hands-on coding skills.</p>
-      <img src="public/assets/image4.jpg">
+          <div class="news-item">
+            <div class="text-block">
+              <p>New science lab inaugurated at Green Hills Academy.</p>
+              <button class="read-more">Read More &#10132;</button>
+            </div>
+            <img src="public/assets/lab.jpg" alt="Event">
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right button -->
+      <button class="slide-btn right">&#10095;</button>
     </div>
   </div>
-</div>
+</section>
 
+ <script>
+  const track = document.querySelector('.slider-track');
+const items = document.querySelectorAll('.news-item');
+
+let totalWidth = 0;
+items.forEach(item => totalWidth += item.offsetWidth + 40); // 40 = gap
+track.style.width = totalWidth + 'px';
+
+// Clone items for seamless scroll
+track.innerHTML += track.innerHTML;
+
+let pos = 0;
+const speed = 1; // pixels per frame, increase for faster scroll
+
+function animate() {
+  pos -= speed;
+  if (Math.abs(pos) >= totalWidth) {
+    pos = 0; // reset smoothly
+  }
+  track.style.transform = `translateX(${pos}px)`;
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+ </script>
+ <script>
+ const slider = document.querySelector('.news-slider');
+const leftBtn = document.querySelector('.slide-btn.left');
+const rightBtn = document.querySelector('.slide-btn.right');
+
+const scrollAmount = 400; // pixels to scroll per click
+
+leftBtn.addEventListener('click', () => {
+  slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+
+rightBtn.addEventListener('click', () => {
+  slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});
+
+      </script>
 </body>
 </html>
