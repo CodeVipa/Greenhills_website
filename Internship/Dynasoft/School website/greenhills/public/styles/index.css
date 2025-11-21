@@ -19,7 +19,7 @@
   display: flex;
   gap: 40px;
   width: max-content;
-  animation: slideLoop 15s linear infinite; /* automatic sliding */
+  animation: slideLoop 15s linear infinite; 
 }
 
 .news-item {
